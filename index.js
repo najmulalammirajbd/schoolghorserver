@@ -20,7 +20,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 client.connect(err => {
     const IslavoUser = client.db("ISLAVO").collection("IslavoUser");
 
-    app.post('/payusers', (req, res) => {
+    app.post('/addusers', (req, res) => {
         const users = req.body;
         IslavoUser.insertOne(users)
             .then(result => {
