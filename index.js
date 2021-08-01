@@ -18,16 +18,25 @@ const port = 5000
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
-    const IslavoUser = client.db("ISLAVO").collection("IslavoUser");
+    const IslavoUsers = client.db("ISLAVO").collection("IslavoUser");
 
     app.post('/addusers', (req, res) => {
         const users = req.body;
-        IslavoUser.insertOne(users)
+        IslavoUsers.insertOne(users)
             .then(result => {
                 res.send(result)
             })
     })
+
+    app.get("/userdata", (req, res) => {
+        IslavoUsers.find({})
+            .toArray((err, document) => {
+                res.send(document)
+            })
+    })
 });
+
+
 // client.connect(err => {
 //     const users = client.db("ISLAVO").collection("service");
 //     console.log(err);
