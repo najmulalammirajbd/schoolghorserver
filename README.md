@@ -1,2 +1,1 @@
-# islavoserver
-# islavopayment
+# schoolghorserver

@@ -18,11 +18,50 @@ const port = 5000
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
-    const IslavoUsers = client.db("ISLAVO").collection("IslavoUser");
+    const BDSCHOOLGHOR = client.db("SCHOOLGHOR").collection("Regi");
 
-    app.post('/addusers', (req, res) => {
+    app.post('/regi', (req, res) => {
         const users = req.body;
-        IslavoUsers.insertOne(users)
+        BDSCHOOLGHOR.insertOne(users)
+            .then(result => {
+                res.send(result)
+            })
+    })
+    const SCHOOLGHORCON = client.db("SCHOOLGHOR").collection("Con");
+
+    app.post('/con', (req, res) => {
+        const users = req.body;
+        SCHOOLGHORCON.insertOne(users)
+            .then(result => {
+                res.send(result)
+            })
+    })
+
+    const SCHOOLGHORREMO = client.db("SCHOOLGHOR").collection("Remo");
+
+    app.post('/remo', (req, res) => {
+        const users = req.body;
+        SCHOOLGHORREMO.insertOne(users)
+            .then(result => {
+                res.send(result)
+            })
+    })
+
+    const SCHOOLGHORRENU = client.db("SCHOOLGHOR").collection("Renu");
+
+    app.post('/renu', (req, res) => {
+        const users = req.body;
+        SCHOOLGHORRENU.insertOne(users)
+            .then(result => {
+                res.send(result)
+            })
+    })
+
+    const SCHOOLGHORUPDA = client.db("SCHOOLGHOR").collection("Upda");
+
+    app.post('/upda', (req, res) => {
+        const users = req.body;
+        SCHOOLGHORUPDA.insertOne(users)
             .then(result => {
                 res.send(result)
             })
