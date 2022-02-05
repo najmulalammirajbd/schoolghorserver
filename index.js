@@ -19,10 +19,10 @@ const port = 5000
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
     const BDSCHOOLGHOR = client.db("SCHOOLGHOR").collection("Regi");
-    const SCHOOLGHORCON = client.db("SCHOOLGHOR").collection("Con");
-    const SCHOOLGHORREMO = client.db("SCHOOLGHOR").collection("Remo");
-    const SCHOOLGHORRENU = client.db("SCHOOLGHOR").collection("Renu");
-    const SCHOOLGHORUPDA = client.db("SCHOOLGHOR").collection("Upda");
+    // const SCHOOLGHORCON = client.db("SCHOOLGHOR").collection("Con");
+    // const SCHOOLGHORREMO = client.db("SCHOOLGHOR").collection("Remo");
+    // const SCHOOLGHORRENU = client.db("SCHOOLGHOR").collection("Renu");
+    // const SCHOOLGHORUPDA = client.db("SCHOOLGHOR").collection("Upda");
     app.post('/regi', (req, res) => {
         const users = req.body;
         BDSCHOOLGHOR.insertOne(users)
@@ -31,38 +31,38 @@ client.connect(err => {
             })
     })
 
-    app.post('/con', (req, res) => {
-        const users = req.body;
-        SCHOOLGHORCON.insertOne(users)
-            .then(result => {
-                res.send(result)
-            })
-    })
+    // app.post('/con', (req, res) => {
+    //     const users = req.body;
+    //     SCHOOLGHORCON.insertOne(users)
+    //         .then(result => {
+    //             res.send(result)
+    //         })
+    // })
 
 
-    app.post('/remo', (req, res) => {
-        const users = req.body;
-        SCHOOLGHORREMO.insertOne(users)
-            .then(result => {
-                res.send(result)
-            })
-    })
+    // app.post('/remo', (req, res) => {
+    //     const users = req.body;
+    //     SCHOOLGHORREMO.insertOne(users)
+    //         .then(result => {
+    //             res.send(result)
+    //         })
+    // })
 
-    app.post('/renu', (req, res) => {
-        const users = req.body;
-        SCHOOLGHORRENU.insertOne(users)
-            .then(result => {
-                res.send(result)
-            })
-    })
+    // app.post('/renu', (req, res) => {
+    //     const users = req.body;
+    //     SCHOOLGHORRENU.insertOne(users)
+    //         .then(result => {
+    //             res.send(result)
+    //         })
+    // })
 
-    app.post('/upda', (req, res) => {
-        const users = req.body;
-        SCHOOLGHORUPDA.insertOne(users)
-            .then(result => {
-                res.send(result)
-            })
-    })
+    // app.post('/upda', (req, res) => {
+    //     const users = req.body;
+    //     SCHOOLGHORUPDA.insertOne(users)
+    //         .then(result => {
+    //             res.send(result)
+    //         })
+    // })
 
     // app.get("/userdata", (req, res) => {
     //     IslavoUsers.find({})
